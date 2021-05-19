@@ -1,0 +1,369 @@
+---
+title: "Presentación de Publicación EEI 2019"
+subtitle: "shiny"  
+author: 'Isaac Castillo, Pablo Núñez, Christopher Araya'
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    #chakra: libs/remark-latest.min.js
+    seal: false
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      
+#![](imagenes/logo_portada2.PNG)
+
+---
+class: center, middle
+
+.linea-superior[]
+.linea-inferior[]
+
+
+<img src="imagenes/logo_portada2.png" width="200" />
+
+
+## Publicación EEI 2019
+
+### Subdepartamento de Estadísticas de Industria (SDEI)
+
+### Mayo 2021
+
+
+```{r setup, include=FALSE}
+#rm(list = ls(), envir = environment())
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(message = FALSE, echo = FALSE, fig.align="center", warning = FALSE) 
+aniview::use_aniview()
+#install.packages('addinslist')
+#xaringan::summon_remark() 
+  
+```
+
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library("xaringanthemer")
+#style_mono_light(base_color = "#002d73")
+# style_duo_accent(
+# primary_color = "#1381B0",
+# secondary_color = "#FF961C",
+# inverse_header_color = "#FFFFFF"
+# )
+
+# Para guardar en PDF
+#install.packages(c("pagedown", "xaringan"))
+#pagedown::chrome_print("presentacion_levantamiento_2019.Rmd")
+#rmarkdown::render("presentacion_levantamiento_2019.Rmd", 
+usuario <- "icastillo"
+D_SCRIPT <-  paste0("C:/Users/",usuario,"/OneDrive - Instituto Nacional de Estadisticas/Industrias/01 ACTIVIDADES/06 ANÁLISIS DE RESULTADOS/6.2 Validar resultados/04 Resultados/Presentación")
+
+library(plotly)
+setwd(D_SCRIPT)
+source("scripts/Resultados 2019.R", encoding = "UTF-8")
+setwd(D_SCRIPT)
+source("scripts/Directorio Publicación.R", encoding = "UTF-8")
+
+```
+
+
+---
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 1. Introducción
+
+La ENIA es uno de los productos estadísticos más longevos del área económica que elabora el INE (desde 1979) y se procesa cada año con el objetivo de medir el sector manufacturero del país. Para ello, se genera una base de datos que permite satisfacer las necesidades de información estructural de este sector. Desde 2010 el INE hereda las encuestas de minería  y EGA del BCCh. En su conjunto son las **Estadísticas Estructurales de Industria** (EEI).
+
+--
+
+Estas encuestas recaba información detallada de las distintas unidades productivas (establecimientos o empresas) que componen la actividad industrial del país. Gracias a ella se cuenta con datos económico-contables y productivos desde las mismas empresas referentes a ingresos, costos y gastos generales, consumo de energéticos, movimiento del activo fijo, empleo y remuneraciones, las canastas de productos y materias primas, entre otros.
+
+
+---
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 2. Estructura de los Productos EEI
+
+Los productos EEI abarcan 8 productos del sector industrial del país
+
+| PRODUCTO | LETRA | Descripción | División | Unidad |
+|:---------|:------|:------------|:-------|:-------|
+|ENAM	| B |	Explotación de minas y canteras	| 05 - 09	| Establecimiento|
+|ENIA	| C	| Industrias manufactureras	| 10 - 33	| Establecimiento|
+|ENADE-ENADT-ENADD	| D	| Suministro de electricidad, gas, vapor y aire acondicionado |3510	| Empresa|
+|ENADG	| D		| | 3520	| Empresa|
+|ENAES	| E	| Suministro de agua; evacuación de aguas residuales, gestión de desechos y descontaminación	| 36-37	| Empresa|
+|ENAER	| E	| |	38 |	Empresa|
+
+
+---
+class: animated, slideInRight
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 3. Tasa de Respuesta Final 
+
+- La tasa de respuesta bajó en ENIA, ENAM y ENAER. En el resto de los productos se mantuvo (sobre 85%). Con la imputación total se logran mejores tasas de respuesta, pero con el costo de la incertidumbre.
+
+```{r}
+Grafico_CDF[[1]]
+
+```
+
+
+---
+class: animated, slideInRight
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 3. Tasa de Respuesta Final 
+
+- Para ENIA a nivel de CIIU la tasa de respuesta es heterogénea, siendo mayor en la división 19 y la menor en la división 32
+
+```{r}
+Grafico_CDF[[2]]
+
+```
+
+
+---
+class: animated, slideInRight
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 4. Levantamiento 2019 
+
+## ¿Cuántas unidades se publican por producto?
+
+- Las unidades se clasifican a nivel de **clase** en ENIA y **división** para ENAM y ENEGA. 
+- En la división 10 (Alimentos) se encuentran concentradas la gran cantidad de unidades publicadas.
+
+```{r}
+GRAFICOS_DIR[[1]]
+```
+
+
+---
+class: animated, slideInRight
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 5. Resultados
+
+## ¿Cuál es la diferencia de las variables agregadas entre lo operativo y lo técnico?
+
+
+```{r}
+GRAFICOS_PLOTLY[[3]]
+```
+
+
+---
+class: animated, slideInRight
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 5. Resultados
+
+```{r}
+GRAFICOS_PLOTLY[[5]]
+
+
+```
+
+
+---
+class: animated, slideInRight
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 5. Resultados
+
+```{r}
+GRAFICOS_PLOTLY[[6]]
+```
+
+
+---
+class: animated, slideInRight
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 5. Resultados
+
+```{r}
+GRAFICOS_PLOTLY[[7]]
+
+
+```
+
+---
+class: animated, slideInRight
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 5. Resultados
+
+```{r}
+GRAFICOS_PLOTLY[[9]]
+
+
+```
+
+---
+class: animated, slideInRight
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 5. Resultados
+
+```{r}
+GRAFICOS_PLOTLY[[10]]
+
+
+```
+
+---
+class: animated, slideInRight
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 5. Resultados
+
+```{r}
+GRAFICOS_PLOTLY[[11]]
+
+
+```
+
+
+---
+class: animated, slideInRight
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 5. Resultados
+
+```{r}
+GRAFICOS_PLOTLY[[13]]
+```
+
+
+---
+class: animated, slideInRight
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 5. Resultados
+
+```{r}
+GRAFICOS_PLOTLY[[14]]
+```
+
+
+---
+class: animated, slideInRight
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 5. Resultados
+
+```{r}
+GRAFICOS_PLOTLY[[15]]
+```
+
+
+---
+class: animated, slideInRight
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 5. Resultados
+
+```{r}
+GRAFICOS_PLOTLY[[16]]
+```
+
+
+---
+class: animated, slideInRight
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 5. Resultados
+
+```{r}
+GRAFICOS_PLOTLY[[17]]
+```
+
+
+
+
+---
+background-image: url("imagenes/fondo2.PNG")
+background-size: contain;
+background-position: 100% 0%
+
+# 6. Logros y Desafíos
+
+.pull-left[
+**Logros:**
+
+- Documentación de procesos
+- Auditoría DAE
+- Mejora en publicación de bases
+- Imputación y Edición automática
+- Automatización de Cuadros de Resultados
+- Mejora de base histórica
+]
+
+--
+
+.pull-right[
+**Desafíos:**
+
+- Clasificación automática del F3-F4
+- Publicación del F3-F4
+- Mejores resultados desde SDO
+- Módulo de Balance por SDTI
+]
+
+
+---
+class: center, middle, animated, slideInRight
+
+
+.linea-superior[]
+.linea-inferior[]
+<img src="imagenes/logo_portada2.png" width="200" />
+
+## Publicación EEI 2020
+
+## SDEI
+
+### ¡Muchas gracias!
+
+### Abril 2021
+
+
